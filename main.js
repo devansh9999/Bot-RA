@@ -239,7 +239,7 @@ const client = new Client({
 //   takeoverOnConflict: true,
 //   takeoverTimeoutMs: 0,
   // puppeteer: {executablePath: config.ppt_path, headless: true, ignoreDefaultArgs: ['--disable-extensions'],args: ["--no-sandbox"]},
-  puppeteer: { headless: true,args: ["--no-sandbox"]},
+  puppeteer: { args: ["--no-sandbox"]},
   // authStrategy: new NoAuth()
   authStrategy: new LocalAuth({ clientId: "whatsbot" })
   // session: config.session,
