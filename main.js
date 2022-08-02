@@ -5,7 +5,7 @@ const canvacord = require("canvacord");
 
 const express = require("express");
 const app = express();
-const { Client, LegacySessionAuth, MessageMedia,NoAuth,LocalAuth } = require("whatsapp-web.js");
+const { Client, LegacySessionAuth, MessageMedia,NoAuth,LocalAuth,RemoteAuth } = require("whatsapp-web.js");
 const pmpermit = require("./helpers/pmpermit");
 const config = require("./config");
 const fs = require("fs");
@@ -17,9 +17,22 @@ const qrcode = require('qrcode-terminal');
 var YoutubeMp3Downloader = require("youtube-mp3-downloader");
 const path = require("path");
 const yts = require( 'yt-search' )
+const { MongoStore } = require('wwebjs-mongo');
+const mongoose = require('mongoose');
+
 Levels.setURL(config.mongodb_url);
 // chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
+mongoose.connect(process.env.MONGODB_URI).then(() => {
+  const store = new MongoStore({ mongoose: mongoose });
+  const client = new Client({
+      authStrategy: new RemoteAuth({
+          store: store,
+          backupSyncIntervalMs: 300000
+      })
+  });
 
+  client.initialize();
+});
 //MINIGAME
 
 const { MiniGames, MiniGame } = require('./index.js');
