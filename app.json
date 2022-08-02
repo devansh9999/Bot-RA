@@ -1,0 +1,65 @@
+{
+  "name": "SciBot",
+  "description": "A Whatsapp bot compatible with MultiDevice (MD)",
+  "repository": "https://github.com/devansh9999/Whatsapp-bot",
+  
+  "keywords": ["SciBot", "whatsapp-bot", "whatsapp"],
+
+  "success_url": "https://devansh-scimitar.me/Whatsapp-bot",
+  "stack": "container",
+  "buildpacks": [
+    {
+      "url": "https://github.com/jontewks/puppeteer-heroku-buildpack.git"
+      
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+  "env": {
+    "SESSION_KEY": {
+      "description": "Session encryption password",
+      "value": ""
+    },
+    "SESSION_URL": {
+      "description": "session.secure public url (It is safe because it is encrypted, But still if you want maybe you can create some sort of authorization stuff)",
+      "value": ""
+    },
+    "REMOVE_BG_API_KEY":{
+      "description": "get it for free from https://www.remove.bg/api#remove-background",
+      "value": ""
+    },
+    "PMPERMIT_ENABLED": {
+      "description": "Enable Pmpermit write true or false only",
+      "value": "true"
+    },
+    "MONGODB_URL": {
+      "description": "MongoDB URL, Get it for free from cloud.mongodb.com, make sure you use your own database since everyone can access this prefilled database below which is connected to ur whatsapp messages",
+      "value": "mongodb+srv://SciBot:20MtCh1mUMInejK5@cluster0.o3x7q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    },
+    "DEFAULT_TR_LANG": {
+      "description": "Default Translation Language",
+      "value": "en"
+    },
+    "DM_DELETE_ALERT": {
+      "description": "show deleted messages in dm or not : ON or OFF",
+      "value": "true"
+    },
+    "OCR_SPACE_API_KEY": {
+      "description": "Get it from https://ocr.space/OCRAPI",
+      "value": "K81744199088957"
+    },
+    "SPAM_LIMIT":{
+    "description": "limit the number of times you can spam a text using !spam : ON or OFF",
+    "value": "ON"
+    },
+    "GROUP_DELETE_ALERT":{
+      "description":"show deleted messages in a group or not : true or false",
+      "value": "true"
+    },
+    "USER_BOT":{
+      "description": "do you want this bot to be a userbot? : true or false",
+      "value": "true"
+    }
+  }
+}
