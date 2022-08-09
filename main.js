@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
   });
 
   client.initialize();
-});
+
 //MINIGAME
 
 const { MiniGames, MiniGame } = require('./index.js');
@@ -234,16 +234,16 @@ class MyGame2 extends MiniGame {
 // const sessionData=JSON.parse('{"WABrowserId":"\"tEqD7iE7LJ60G8OZ3VY4KA==\"","WASecretBundle":"{\"key\":\"6x0tAJpBdH9WyECjAeW7vgnRgsctS4+LAbbq2dhKF50=\",\"encKey\":\"l6MvYB/L233L5euccB0foJhmTO1ori3zuO1qfD30vR0=\",\"macKey\":\"6x0tAJpBdH9WyECjAeW7vgnRgsctS4+LAbbq2dhKF50=\"}","WAToken1":"\"L9WhzmITqQTyvol4+XH44SKSgEvteSmaVvE/0wIWrdk=\"","WAToken2":"\"1@bCv6iG3A12Lekpo3y5AUn8vkLKDKMG59ujDmpbMN05MlVhaR39a82YpPcM87jEbNfm/lP9XS7MKzVg==\""}');
 const sessionData={"WABrowserId":"\"tEqD7iE7LJ60G8OZ3VY4KA==\"","WASecretBundle":"{\"key\":\"6x0tAJpBdH9WyECjAeW7vgnRgsctS4+LAbbq2dhKF50=\",\"encKey\":\"l6MvYB/L233L5euccB0foJhmTO1ori3zuO1qfD30vR0=\",\"macKey\":\"6x0tAJpBdH9WyECjAeW7vgnRgsctS4+LAbbq2dhKF50=\"}","WAToken1":"\"L9WhzmITqQTyvol4+XH44SKSgEvteSmaVvE/0wIWrdk=\"","WAToken2":"\"1@bCv6iG3A12Lekpo3y5AUn8vkLKDKMG59ujDmpbMN05MlVhaR39a82YpPcM87jEbNfm/lP9XS7MKzVg==\""};
 
-const client = new Client({
-  // authStrategy: new NoAuth(),
-//   takeoverOnConflict: true,
-//   takeoverTimeoutMs: 0,
-  // puppeteer: {executablePath: config.ppt_path, headless: true, ignoreDefaultArgs: ['--disable-extensions'],args: ["--no-sandbox"]},
-  puppeteer: { args: ["--no-sandbox"]},
-  // authStrategy: new NoAuth()
-  authStrategy: new RemoteAuth()
-  // session: config.session,
-}); 
+// const client = new Client({
+//   // authStrategy: new NoAuth(),
+// //   takeoverOnConflict: true,
+// //   takeoverTimeoutMs: 0,
+//   // puppeteer: {executablePath: config.ppt_path, headless: true, ignoreDefaultArgs: ['--disable-extensions'],args: ["--no-sandbox"]},
+//   puppeteer: { args: ["--no-sandbox"]},
+//   // authStrategy: new NoAuth()
+//   authStrategy: new RemoteAuth()
+//   // session: config.session,
+// }); 
 
 client.commands = new Map();
 
@@ -861,4 +861,5 @@ app.use(
 
 app.listen(process.env.PORT || 8080, () => {
   console.log(`Server listening at Port: ${process.env.PORT || 8080}`);
+});
 });
