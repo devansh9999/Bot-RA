@@ -241,7 +241,7 @@ const client = new Client({
   // puppeteer: {executablePath: config.ppt_path, headless: true, ignoreDefaultArgs: ['--disable-extensions'],args: ["--no-sandbox"]},
   puppeteer: { args: ["--no-sandbox"]},
   // authStrategy: new NoAuth()
-  authStrategy: new LocalAuth({ clientId: "whatsbot" })
+  authStrategy: new RemoteAuth()
   // session: config.session,
 }); 
 
