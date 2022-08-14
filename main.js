@@ -274,7 +274,7 @@ client.on('qr', (qr) => {
 //END FOR PC
 
 
-client.initialize();
+// client.initialize();
 
 client.on("auth_failure", () => {
   console.error(
