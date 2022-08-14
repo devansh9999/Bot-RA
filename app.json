@@ -6,7 +6,7 @@
   "keywords": ["SciBot", "whatsapp-bot", "whatsapp"],
 
   "success_url": "https://devansh-scimitar.me/Whatsapp-bot",
-  "stack": "container",
+
   "buildpacks": [
     {
       "url": "https://github.com/jontewks/puppeteer-heroku-buildpack.git"
