@@ -22,11 +22,11 @@ const mongoose = require('mongoose');
 // chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
 
 //MINIGAME
-Levels.setURL(config.mongodb_url)
-mongoose.connect(process.env.MONGODB_URI).then(() => {
+Levels.setURL(config.mongodb_url).then(() => {
   const store = new MongoStore({ mongoose: mongoose });
   const client = new Client({
-      authStrategy: RemoteAuth
+      authStrategy: RemoteAuth,
+	  puppeteer: { headless: true,args: ["--no-sandbox"]},
   });
 
   client.initialize();
