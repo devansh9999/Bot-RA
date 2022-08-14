@@ -19,22 +19,17 @@ const path = require("path");
 const yts = require( 'yt-search' )
 const { MongoStore } = require('wwebjs-mongo');
 const mongoose = require('mongoose');
-
-Levels.setURL(config.mongodb_url);
 // chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
+
+//MINIGAME
+Levels.setURL(config.mongodb_url)
 mongoose.connect(process.env.MONGODB_URI).then(() => {
   const store = new MongoStore({ mongoose: mongoose });
   const client = new Client({
-      authStrategy: new RemoteAuth({
-          store: store,
-          backupSyncIntervalMs: 300000
-      })
+      authStrategy: RemoteAuth
   });
 
   client.initialize();
-
-//MINIGAME
-
 const { MiniGames, MiniGame } = require('./index.js');
 class MyGame extends MiniGame {
   constructor(message, client) {
@@ -239,9 +234,9 @@ const sessionData={"WABrowserId":"\"tEqD7iE7LJ60G8OZ3VY4KA==\"","WASecretBundle"
 // //   takeoverOnConflict: true,
 // //   takeoverTimeoutMs: 0,
 //   // puppeteer: {executablePath: config.ppt_path, headless: true, ignoreDefaultArgs: ['--disable-extensions'],args: ["--no-sandbox"]},
-//   puppeteer: { args: ["--no-sandbox"]},
+//   puppeteer: { headless: true,args: ["--no-sandbox"]},
 //   // authStrategy: new NoAuth()
-//   authStrategy: new RemoteAuth()
+//   authStrategy: new LocalAuth({ clientId: "whatsbot" })
 //   // session: config.session,
 // }); 
 
